@@ -12,11 +12,15 @@
     <script src="static/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+      
+
       <thead>
         <tr>
-        {% for record in records %}
-        {% for key in record %}
-          <th  class="mdl-data-table__cell--non-numeric">{{ key }}</th>{% endfor %}{% endfor %}
+          <th  class="mdl-data-table__cell--non-numeric">ID</th>
+          <th  class="mdl-data-table__cell--non-numeric">Name</th>
+          <th  class="mdl-data-table__cell--non-numeric">Tagline</th>
+          <th  class="mdl-data-table__cell--non-numeric">First Brewed</th>
+          <th  class="mdl-data-table__cell--non-numeric">Description</th>
           {% for record in records %}
         </tr>
       </thead>
@@ -26,24 +30,9 @@
               <td class="mdl-data-table__cell--non-numeric">{{ record['name'] }}</td>
               <td class="mdl-data-table__cell--non-numeric">{{ record['tagline']}}</td>
               <td class="mdl-data-table__cell--non-numeric">{{ record['first_brewed']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['description']}}</td>
-              <td class="mdl-data-table__cell--non-numeric"><img src="{{ record['image_url']}}" alt="{{ record['name'] }}" height=150px></td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['abv']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['ibu']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['target_fg']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['target_og']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['ebc']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['srm']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['ph']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['attenuation_level']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['volume']['value'] }} {{ record['volume']['unit'] }}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['boil_volume']['value']}} {{ record['boil_volume']['unit']}}</td>
-              <td class="mdl-data-table__cell--non-numeric"><strong>Boil temperature:</strong>{% for temp in record['method']['mash_temp'] %}<br> {{temp['temp']['value']}} {{temp['temp']['unit']}} {% endfor %}<br>
-              <strong>Fermentation temperature:</strong>><br>{{ record['method']['fermentation']['temp']['value'] }} {{ record['method']['fermentation']['temp']['unit'] }}  </td>
-              <td class="mdl-data-table__cell--non-numeric"><strong>Malt:</strong>{% for malt in record['ingredients']['malt'] %}<br>{{malt['name']}}, {{malt['amount']['value']}} {{malt['amount']['unit']}}{% endfor %}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['food_pairing']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['brewers_tips']}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{ record['contributed_by']}}</td>
+              <td class="mdl-data-table__cell--non-numeric" style="white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word">{{ record['description']}}</td>
+              <!-- <td class="mdl-data-table__cell--non-numeric"><img src="{{ record['image_url']}}" alt="{{ record['name'] }}" height=150px></td> -->
+
           
             </tr>
       </tbody>
